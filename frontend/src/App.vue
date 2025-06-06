@@ -1,30 +1,51 @@
+
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import { RouterView, RouterLink } from 'vue-router';
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container-fluid min-vh-100 d-flex flex-column bg-light p-0">
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+      <RouterLink class="navbar-brand fw-bold" to="/">DeskPlanIt</RouterLink>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/">Dashboard</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/maps">Maps</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/seating">Seating</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/users">Users</RouterLink>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-fill d-flex flex-column align-items-center justify-content-center py-4 w-100">
+      <div class="w-100" style="max-width: 900px;">
+        <RouterView />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-2 mt-auto">
+      &copy; {{ new Date().getFullYear() }} DeskPlanIt
+    </footer>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.navbar-brand {
+  letter-spacing: 1px;
 }
 </style>
