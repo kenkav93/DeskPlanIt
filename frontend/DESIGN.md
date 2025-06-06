@@ -1,50 +1,49 @@
-# DeskPlanIt Frontend Design
+# DeskPlanIt — Design & Architecture (2025-06-05)
 
 ## Purpose
-DeskPlanIt is a seating chart system for managing office desk assignments, custom map uploads, and user seating placements, with a focus on usability for both desktop and mobile users.
+DeskPlanIt is an in-house workplace management platform for interactive office maps, desk/room booking, analytics, and visitor management, designed to replace Robin and similar tools.
 
-## Design Principles
-- **Modern, clean, and intuitive UI**
-- **Responsive**: Works seamlessly on desktop and mobile
-- **Accessible**: Follows accessibility best practices
-- **Easy navigation**: Clear menus and actions
-- **Visual clarity**: Use of whitespace, clear typography, and color contrast
+## High-Level Architecture
+- **Frontend:** Vue 3, Vue Router, Pinia, Bootstrap, Axios
+- **Backend:** Java Spring Boot, JPA, Spring Security (LDAP/AD), REST API, OpenAPI docs
+- **Monorepo:** Shared documentation, CI/CD, and code standards
 
-## Main UI Components
-- **Header**: App name, navigation, user profile
-- **Sidebar (desktop) / Drawer (mobile)**: Quick access to maps, seating, users, settings
-- **Main Content Area**:
-  - Map upload and display
-  - Drag-and-drop seating chart
-  - User/seat management
-  - Audit log and notifications
-- **Dialogs/Modals**: For editing, assigning, or confirming actions
-- **Footer**: Minimal, with copyright/info
+## Core Modules & UI
+1. **Interactive Map Management**
+   - Map upload (SVG/PNG/PDF)
+   - Map viewer with drag-and-drop seat/room placement
+   - Clickable desks/rooms for booking/info
+2. **Desk & Room Booking**
+   - Calendar view and map-based booking
+   - Hot desking, assigned seating, recurring bookings
+   - Booking rules and check-in/check-out
+3. **Calendar Integration**
+   - Sync with Outlook/Google
+   - Show external events
+4. **Visitor Management**
+   - Pre-registration, check-in, host notification
+   - Visitor log
+5. **Analytics Dashboard**
+   - Utilization, trends, exportable reports
+6. **Admin Tools**
+   - Map/seat/room editor, user/role management, policy config
 
-## Color & Typography
-- **Primary color**: #2563eb (blue)
-- **Accent color**: #22d3ee (cyan)
-- **Background**: #f8fafc (light gray)
-- **Text**: #0f172a (dark blue-gray)
-- **Font**: 'Inter', 'Roboto', or system sans-serif
+## UI/UX Principles
+- Responsive (desktop/mobile)
+- Accessible (WCAG 2.1)
+- Modular, reusable components
+- Clear navigation and feedback
 
-## Mobile Considerations
-- Collapsible sidebar
-- Large touch targets
-- Responsive drag-and-drop (where possible)
+## Component Structure
+- `Header`, `Sidebar`, `Footer`
+- `MapUploader`, `MapViewer`, `SeatGrid`, `RoomGrid`
+- `BookingCalendar`, `BookingForm`, `UserList`, `VisitorForm`, `AnalyticsDashboard`
 
-## Libraries/Frameworks
-- [Vue 3](https://vuejs.org/)
-- [Vite](https://vitejs.dev/)
-- [Vue Router](https://router.vuejs.org/) (for navigation)
-- [Pinia](https://pinia.vuejs.org/) (for state management)
-- [Tailwind CSS](https://tailwindcss.com/) (for rapid, modern, responsive design)
-
-## Next Steps
-- Install Tailwind CSS and set up responsive layout
-- Scaffold main pages: Dashboard, Map Management, Seating Chart, Users, Settings
-- Build reusable components: Header, Sidebar, MapUploader, SeatGrid, UserList, etc.
+## Data Flow
+- Pinia for state (maps, bookings, users)
+- Axios for API calls
+- Route guards for authentication/roles
 
 ---
 
-See this file for design and UX guidance as you build out the DeskPlanIt frontend.
+See `PROJECT_INFO.md` for feature breakdown and roadmap.

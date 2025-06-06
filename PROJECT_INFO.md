@@ -1,29 +1,30 @@
-# DeskPlanIt — Project Information
+
+# DeskPlanIt — Project Information (2025-06-05)
 
 ## Overview
-DeskPlanIt is a monorepo application for managing office seating charts, integrating with Active Directory, and providing a modern, user-friendly interface for administrators and employees.
+DeskPlanIt is a robust, in-house workplace management platform for interactive office maps, desk/room booking, analytics, and visitor management, designed to replace Robin and similar tools.
 
 ## Features
-- **Custom Map Uploads:** Upload office floor plans (SVG, PNG, etc.)
-- **Seating Placement:** Drag-and-drop UI for assigning seats
-- **Active Directory Integration:** SSO and user sync
-- **User Management:** Assign, move, and search users/seats
-- **Audit Logs:** Track changes to seating assignments
-- **Export/Import:** Download/upload seating charts (CSV, PDF)
-- **Notifications:** Email or Teams/Slack integration for seat changes
-- **API Documentation:** Swagger/OpenAPI for backend
-- **Role-based Access Control:** Admin, manager, user roles
+- **Custom Map Uploads:** Upload and manage office floor plans (SVG, PNG, PDF)
+- **Interactive Maps:** Drag-and-drop seat/room placement, clickable for booking/info
+- **Desk & Room Booking:** Hot desking, assigned seating, recurring bookings, check-in/out
+- **Calendar Integration:** Sync with Outlook/Google, show external events
+- **Visitor Management:** Pre-registration, check-in, host notification, visitor log
+- **Workplace Analytics:** Utilization, trends, exportable reports
+- **Admin Tools:** Map/seat/room editor, user/role management, policy config
+- **Role-Based Access:** Admin, manager, employee, visitor roles
+- **Mobile & Web:** Responsive design, PWA support
 
 ## Integrations
+- **Active Directory/LDAP:** Authentication and user sync
 - **CI/CD:** GitHub Actions for linting, testing, building, and deployment
-- **Pre-commit Hooks:** Lint, format, and test before commit
-- **Dependabot:** Automated dependency updates
+- **Calendar APIs:** Microsoft Graph, Google Calendar
+- **Notifications:** Email, Teams, Slack
 
-## Advanced/Optional
-- SAML/OAuth2 support
-- Analytics dashboard
-- Facilities management integration
-- Mobile-friendly UI
+## Roadmap
+1. **MVP:** Map upload, interactive map, desk/room booking, basic auth, admin UI
+2. **Core Integrations:** Calendar sync, visitor management, analytics dashboard
+3. **Advanced:** Mobile PWA, notifications, policy/workflow automation
 
 ## Monorepo Structure
 ```
