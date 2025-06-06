@@ -1,0 +1,13 @@
+# DeskPlanIt Monorepo
+# Node/Vue
+frontend/node_modules/
+frontend/dist/
+# Java/Spring Boot
+backend/target/
+backend/.mvn/
+backend/.idea/
+# General
+.DS_Store
+.env
+*.log
+.vscode/
