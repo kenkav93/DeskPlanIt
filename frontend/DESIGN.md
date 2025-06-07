@@ -1,3 +1,9 @@
+## Usage Notes (MVP)
+
+- **Map Upload:** Use the Maps page to upload an SVG/PNG/PDF map. SVG is recommended for best interactivity.
+- **Interactive Map:** Use the Seating page to view the map and place seats. Drag, label, assign, and remove seats. All seat data is persisted in local storage for demo purposes.
+- **Seat Assignment:** Click the 👤 button on a seat to assign a user. Click ✎ to edit the label, × to remove.
+- **Persistence:** Seat positions and assignments are saved locally. Backend API integration is ready for future expansion.
 # DeskPlanIt — Design & Architecture (2025-06-05)
 
 ## Purpose

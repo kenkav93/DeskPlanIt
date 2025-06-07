@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia';
+import axios from 'axios';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     user: null,
-    token: null,
+    role: null,
     loading: false,
     error: null,
   }),
@@ -12,22 +13,25 @@ export const useAuthStore = defineStore('auth', {
       this.loading = true;
       this.error = null;
       try {
-        // Replace with your backend login API
-        // const response = await axios.post('/api/auth/login', { username, password });
-        // this.user = response.data.user;
-        // this.token = response.data.token;
-        // For now, mock login:
-        this.user = { username };
-        this.token = 'mock-token';
+        await axios.post('/login', new URLSearchParams({ username, password }), {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          withCredentials: true,
+        });
+        // Fetch user info/role after login
+        const { data } = await axios.get('/api/users', { withCredentials: true });
+        const found = data.find(u => u.username === username);
+        this.user = found || { username };
+        this.role = found?.role || null;
       } catch (e) {
         this.error = 'Login failed';
       } finally {
         this.loading = false;
       }
     },
-    logout() {
+    async logout() {
+      await axios.post('/logout', {}, { withCredentials: true });
       this.user = null;
-      this.token = null;
+      this.role = null;
     },
   },
 });

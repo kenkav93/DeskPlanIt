@@ -15,9 +15,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authz -> authz
+                .requestMatchers("/api/users/**").hasRole("ADMIN")
+                .requestMatchers("/api/maps/**", "/api/seating/**", "/api/bookings/**").authenticated()
                 .anyRequest().permitAll()
             )
-            .formLogin(Customizer.withDefaults());
+            .formLogin(Customizer.withDefaults())
+            .logout(Customizer.withDefaults())
+            .httpBasic(Customizer.withDefaults());
         return http.build();
     }
 }
